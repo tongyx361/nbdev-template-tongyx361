@@ -14,12 +14,15 @@ echo "${todo_nbs}" | xargs -I {} sh -c 'echo "Cleaning {}"; nbdev_clean --fname 
 echo "Running nbdev_prepare..."
 nbdev_prepare
 
-if [ -d "pipeline" ]; then
-    echo "Updating scripts from modified pipeline notebooks ..."
-    for f in $(echo ${todo_nbs} | grep -E '^pipeline/.*?\.ipynb$'); do
-        jupyter nbconvert --to python --no-prompt --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags dev "${f}"
+pipeline_dir="utils"
+if [ -d "${pipeline_dir}" ]; then
+    for f in ${todo_nbs}; do
+        if [[ "${f}" == "${pipeline_dir}/"*".ipynb" ]]; then
+            jupyter nbconvert --to python --no-prompt --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags dev "${f}"
+        fi
     done
-    black pipeline/
+    black "${pipeline_dir}"
+
 fi
 
 git status
