@@ -38,6 +38,7 @@ For intended contributors, we recommend installing the package with the
 ``` shell
 pip install -e ".[dev]"
 pre-commit install
+conda install quarto # For nbdev
 ```
 
 ## Contribution Guidelines
