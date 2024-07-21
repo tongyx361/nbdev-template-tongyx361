@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nfoo\n\n foo ()",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdev Template @tongyx361",
+    "section": "",
+    "text": "We recommend:\n\nusing Conda to set up the basic Python environment and install some non-Python packages like git-lfs when without the root permission;\nusing pip to manage the Python packages because some packages are only available via pip.\n\nRun the following commands to setup the basic environment and install most dependencies:\ngit clone https://github.com/tongyx361/nbdev-template-tongyx361.git\ncd nbdev-template-tongyx361\n# Configure settings.ini, environment.yml, pkg_name\nconda env create -f environment.yml\nconda activate myenv\npip install -r requirements.txt\nFor common users/developers, please just run the following command the install the dart-math package:\npip install -e \".\"\nFor intended contributors, we recommend installing the package with the dev extras and setting up the pre-commit hooks by running:\npip install -e \".[dev]\"\npre-commit install\nconda install quarto # For nbdev",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "index.html#setup",
+    "href": "index.html#setup",
+    "title": "nbdev Template @tongyx361",
+    "section": "",
+    "text": "We recommend:\n\nusing Conda to set up the basic Python environment and install some non-Python packages like git-lfs when without the root permission;\nusing pip to manage the Python packages because some packages are only available via pip.\n\nRun the following commands to setup the basic environment and install most dependencies:\ngit clone https://github.com/tongyx361/nbdev-template-tongyx361.git\ncd nbdev-template-tongyx361\n# Configure settings.ini, environment.yml, pkg_name\nconda env create -f environment.yml\nconda activate myenv\npip install -r requirements.txt\nFor common users/developers, please just run the following command the install the dart-math package:\npip install -e \".\"\nFor intended contributors, we recommend installing the package with the dev extras and setting up the pre-commit hooks by running:\npip install -e \".[dev]\"\npre-commit install\nconda install quarto # For nbdev",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "index.html#contribution-guidelines",
+    "href": "index.html#contribution-guidelines",
+    "title": "nbdev Template @tongyx361",
+    "section": "Contribution Guidelines",
+    "text": "Contribution Guidelines\n\nFile Structure\nnbdev_template_tongyx361\n├── data\n├── utils # Repository utilities\n├── pkg_name # Package code for common utilities\n├── nbs # Notebooks and other files to run tests and generate documentation with https://nbdev.fast.ai\n├── [cfgs] # Configurations\n├── [pipelines] # Reusable (Python / Shell) scripts or notebooks\n└── [scripts] # One-time scripts\n\n\nChecklist Before Commit\nRun the prepare-commit.sh to clean the notebooks and export scripts for pipeline notebooks, generate documentation, run tests, render README if needed:\nbash utils/prepare-commit.sh",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  }
+]
