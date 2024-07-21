@@ -2,6 +2,7 @@
 data/
 models/
 logs/
+wandb/
 
 _docs/
 _proc/
