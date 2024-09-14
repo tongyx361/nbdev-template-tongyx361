@@ -1,0 +1,6 @@
+[tool.flake8]
+max-line-length = 88 # `black`'s default line length
+extend-ignore = F401,E402,E501,E203,FI10,FI11,FI12,FI13,FI14,FI15,FI16,FI17,FI18
+
+[tool.isort]
+profile = "black"
