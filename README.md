@@ -57,7 +57,7 @@ conda install quarto # For nbdev
     ├── utils # Repository utilities
     ├── pkg_name # Package code for common utilities
     ├── nbs # Notebooks and other files to run tests and generate documentation with https://nbdev.fast.ai
-    ├── [cfgs] # Configurations
+    ├── cfgs # Configurations
     ├── [pipelines] # Reusable (Python / Shell) scripts or notebooks
     └── [scripts] # One-time scripts
 

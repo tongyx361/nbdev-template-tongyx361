@@ -29,6 +29,7 @@ if [ -d "${pipeline_dir}" ]; then
             jupyter nbconvert --to python --no-prompt --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags dev "${f}"
         fi
     done
+    isort "${pipeline_dir}"
     black "${pipeline_dir}"
 fi
 
