@@ -5,4 +5,4 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://tongyx361.github.io',
                 'git_url': 'https://github.com/tongyx361/nbdev-template-tongyx361',
                 'lib_path': 'pkg_name'},
-  'syms': {'pkg_name.utils': {'pkg_name.utils.init_logging': ('utils.html#init_logging', 'pkg_name/utils.py')}}}
+  'syms': {'pkg_name.utils': {'pkg_name.utils.get_logger': ('utils.html#get_logger', 'pkg_name/utils.py')}}}

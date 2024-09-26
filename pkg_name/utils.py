@@ -2,25 +2,27 @@
 Common utilities used across modules.
 """
 
+# %% ../nbs/99_utils.ipynb 0
 import logging
 from typing import Optional
 
 
-# %% ../nbs/99_utils.ipynb 0
-def init_logging(
+def get_logger(
+    name: str,
     fmt: str = "[%(levelname)s] [%(asctime)s.%(msecs)d] [pid %(process)d] [%(pathname)s:%(lineno)d:%(funcName)s]\n%(message)s",
     datefmt: str = "%Y-%m-%d %H:%M:%S",
     level: int = logging.INFO,
     log_path: Optional[str] = None,
     file_mode: str = "w",
-    force: bool = True,
-) -> None:
+) -> logging.Logger:
     """
-    Initialize logging.
+    Get a configured logger.
 
     Parameters
     ----------
-    format: str
+    name: str
+        Name of the logger.
+    fmt: str
         Format of the log message.
     datefmt: str
         Date format of the log message.
@@ -30,27 +32,37 @@ def init_logging(
         Path to the log file.
     file_mode: str
         Mode of the log file.
-    force: bool
-        Whether to force the logging to be initialized.
+
+    Returns
+    -------
+    logging.Logger
+        Configured logger instance.
     """
-    if force:
-        logging.shutdown()
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
 
-    logging.basicConfig(
-        format=fmt,
-        datefmt=datefmt,
-        level=level,
-        force=force,
-    )
+    # Remove any existing handlers
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
 
+    # Create formatter
+    formatter = logging.Formatter(fmt=fmt, datefmt=datefmt)
+
+    # Create console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+
+    # Create file handler if log_path is provided
     if log_path is not None:
         file_handler = logging.FileHandler(log_path, mode=file_mode)
-        file_handler.setLevel(level)
-        file_handler.setFormatter(logging.Formatter(fmt=fmt, datefmt=datefmt))
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+        logger.info(f"log_path = {log_path}")
 
-        logging.getLogger().addHandler(file_handler)
-        logging.info(f"log_path = {log_path}")
+    return logger
 
 
-init_logging()
-logging.info("Test logging.")
+if __name__ == "__main__":
+    logger = get_logger(__name__)
+    logger.info("Test logging.")
