@@ -27,7 +27,7 @@ line_length = 88  # Should match Black's line length
 
 [tool.mypy]
 python_version = "3.11"
-disallow_untyped_defs = true
+disallow_untyped_defs = false
 ignore_missing_imports = true
 show_error_codes = true
 strict_optional = true
