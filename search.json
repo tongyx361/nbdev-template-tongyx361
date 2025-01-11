@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdev Template @tongyx361",
+    "section": "",
+    "text": "nbs/index.ipynb\nsettings.ini\nenvironment.yml\npkg_name directory\nRun bash utils/prepare-commit.sh",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "index.html#adaptation-checklist",
+    "href": "index.html#adaptation-checklist",
+    "title": "nbdev Template @tongyx361",
+    "section": "",
+    "text": "nbs/index.ipynb\nsettings.ini\nenvironment.yml\npkg_name directory\nRun bash utils/prepare-commit.sh",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "index.html#setup",
+    "href": "index.html#setup",
+    "title": "nbdev Template @tongyx361",
+    "section": "Setup",
+    "text": "Setup\nWe recommend:\n\nusing Conda to set up the basic Python environment and install some non-Python packages like git-lfs when without the root permission;\nusing pip to manage the Python packages because some packages are only available via pip.\n\nRun the following commands to setup the basic environment and install most dependencies:\ngit clone https://github.com/tongyx361/nbdev-template-tongyx361.git\ncd nbdev-template-tongyx361\nconda env create -f environment.yml\nconda activate myenv\npip install -r requirements.txt\nFor common users/developers, please just run the following command the install the pkg_name package:\npip install -e \".\"\nFor intended contributors, we recommend installing the package with the dev extras and setting up the pre-commit hooks by running:\npip install -e \".[dev]\"\npre-commit install\nconda install quarto # For nbdev",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "index.html#contribution-guidelines",
+    "href": "index.html#contribution-guidelines",
+    "title": "nbdev Template @tongyx361",
+    "section": "Contribution Guidelines",
+    "text": "Contribution Guidelines\n\nFile Structure\nnbdev_template_tongyx361\n├── data\n├── utils # Repository utilities\n├── pkg_name # Package code for common utilities\n├── nbs # Notebooks and other files to run tests and generate documentation with https://nbdev.fast.ai\n├── cfgs # Configurations\n├── [pipelines] # Reusable (Python / Shell) scripts or notebooks\n└── [scripts] # One-time scripts\n\n\nChecklist Before Commit\nRun the prepare-commit.sh to clean the notebooks and export scripts for pipeline notebooks, generate documentation, run tests, render README if needed:\nbash utils/prepare-commit.sh",
+    "crumbs": [
+      "`nbdev` Template @tongyx361"
+    ]
+  },
+  {
+    "objectID": "utils.html",
+    "href": "utils.html",
+    "title": "Utilities",
+    "section": "",
+    "text": "from pkg_name.utils import *\n\n\nsource\n\nget_logger\n\n get_logger (name:str, fmt:str='[%(levelname)s] [%(asctime)s.%(msecs)d]\n             [pid %(process)d]\n             [%(pathname)s:%(lineno)d:%(funcName)s]\\n%(message)s',\n             datefmt:str='%Y-%m-%d %H:%M:%S', level:int=20,\n             log_path:Optional[str]=None, file_mode:str='w')\n\nGet a configured logger.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname\nstr\n\n\n\n\nfmt\nstr\n[%(levelname)s] [%(asctime)s.%(msecs)d] [pid %(process)d] [%(pathname)s:%(lineno)d:%(funcName)s]%(message)s\n\n\n\ndatefmt\nstr\n%Y-%m-%d %H:%M:%S\n\n\n\nlevel\nint\n20\n\n\n\nlog_path\nOptional\nNone\n\n\n\nfile_mode\nstr\nw\n\n\n\nReturns\nLogger\n\nConfigured logger instance.",
+    "crumbs": [
+      "Utilities"
+    ]
+  }
+]
