@@ -1,30 +1,3 @@
-[tool.black]
-line-length = 88
-target-version = ['py311']
-include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # directories
-  \.eggs         # Temporary directory for egg installations
-  | \.git        # Git version control directory
-  | \.hg         # Mercurial version control directory
-  | \.mypy_cache # MyPy cache directory
-  | \.tox        # Tox testing tool directory
-  | \.venv       # Virtual environment directory
-  | build        # Build output directory
-  | dist         # Distribution output directory
-)/
-'''
-
-[tool.isort]
-profile = "black"  # Use Black-compatible defaults
-multi_line_output = 3  # Vertical Hanging Indent
-include_trailing_comma = true  # Include a trailing comma on multi-line imports
-force_grid_wrap = 0  # Don't force grid wrapping
-use_parentheses = true  # Use parentheses for line continuation
-ensure_newline_before_comments = true  # Ensure new line before comments
-line_length = 88  # Should match Black's line length
-
 [tool.mypy]
 python_version = "3.11"
 disallow_untyped_defs = false
@@ -39,7 +12,9 @@ no_implicit_optional = true
 warn_unused_configs = true
 
 [tool.ruff]
+# Basic settings
 line-length = 88
+target-version = "py311"
 
 # Exclude directories
 exclude = [
@@ -48,6 +23,14 @@ exclude = [
     "build",
     "dist",
     "venv",
+]
+
+# Enable additional rules
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
 ]
 
 # Similar to Flake8's ignore list
@@ -61,6 +44,11 @@ ignore = [
 # Allow unused imports in __init__.py files
 [tool.ruff.per-file-ignores]
 "__init__.py" = ["F401"]
+
+# isort settings (now handled by Ruff)
+[tool.ruff.isort]
+combine-as-imports = true
+force-wrap-aliases = true
 
 # Maximum McCabe complexity
 [tool.ruff.mccabe]
